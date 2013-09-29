@@ -36,4 +36,12 @@
         <jiraProjectName>JMX</jiraProjectName>
         <jiraComponentId></jiraComponentId>
     </properties>
+    
+    
+    <scm>
+        <connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/system/plugin-jmx</connection>
+        <developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/system/plugin-jmx</developerConnection>
+        <url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/system/plugin-jmx</url>
+    </scm>
+
 </project>

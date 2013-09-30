@@ -64,7 +64,7 @@ public class CacheManagedResource implements ManagedResource
     }
     
     /**
-     * The size
+     * The size (the number of object in the cache)
      * @return The size
      */
     public int getSize()
@@ -79,5 +79,23 @@ public class CacheManagedResource implements ManagedResource
     public String getInfos()
     {
         return _cs.getInfos();
+    }
+    
+    /**
+     * Return the memory size
+     * @return the memory size
+     */
+    public long getMemorySize()
+    {
+        return _cs.getMemorySize();
+    }
+    
+    /**
+     * Return the cache status
+     * @return the cache status
+     */
+    public boolean isEnabled()
+    {
+        return _cs.isCacheEnable();
     }
 }

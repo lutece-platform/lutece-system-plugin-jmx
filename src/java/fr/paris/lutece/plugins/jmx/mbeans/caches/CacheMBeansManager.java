@@ -71,18 +71,38 @@ public class CacheMBeansManager implements ResourceManager
                     "name=Size", "descriptorType=attribute", "displayName=Size of the plugin", "getMethod=getSize"
                 } );
 
-        ModelMBeanAttributeInfo[] mmbai = new ModelMBeanAttributeInfo[2];
-        mmbai[0] = new ModelMBeanAttributeInfo( "Infos", "java.lang.String", "Infos of the plugin", true, false, false,
+        Descriptor descriptorMemorySize = new DescriptorSupport( new String[]
+                {
+                    "name=MemorySize", "descriptorType=attribute", "displayName=Cache size", "getMethod=getMemorySize"
+                } );
+
+        Descriptor descriptorEnabled = new DescriptorSupport( new String[]
+                {
+                    "name=Enabled", "descriptorType=attribute", "displayName=Enabled", "getMethod=isEnabled"
+                } );
+
+        ModelMBeanAttributeInfo[] mmbai = new ModelMBeanAttributeInfo[4];
+        mmbai[0] = new ModelMBeanAttributeInfo( "Infos", "java.lang.String", "Cache config", true, false, false,
                 descriptorInfos );
-        mmbai[1] = new ModelMBeanAttributeInfo( "Size", "java.lang.Integer", "Size of the plugin", true, false, false,
+        mmbai[1] = new ModelMBeanAttributeInfo( "Size", "java.lang.Integer", "Cache size", true, false, false,
                 descriptorSize );
+        mmbai[2] = new ModelMBeanAttributeInfo( "MemorySize", "java.lang.Long", "Cache memory size", true, false, false,
+                descriptorMemorySize );
+        mmbai[3] = new ModelMBeanAttributeInfo( "Enabled", "java.lang.Boolean", "Enabled", true, false, false,
+                descriptorEnabled );
 
-        ModelMBeanOperationInfo[] mmboi = new ModelMBeanOperationInfo[2];
+        ModelMBeanOperationInfo[] mmboi = new ModelMBeanOperationInfo[4];
 
-        mmboi[0] = new ModelMBeanOperationInfo( "getInfos", "getter for Infos attribute", null, "String",
+        mmboi[0] = new ModelMBeanOperationInfo( "getInfos", "Infos getter", null, "String",
                 ModelMBeanOperationInfo.INFO );
 
-        mmboi[1] = new ModelMBeanOperationInfo( "getSize", "getter for Size attribute", null, "int",
+        mmboi[1] = new ModelMBeanOperationInfo( "getSize", "Size getter", null, "int",
+                ModelMBeanOperationInfo.INFO );
+
+        mmboi[2] = new ModelMBeanOperationInfo( "getMemorySize", "MemorySize getter", null, "long",
+                ModelMBeanOperationInfo.INFO );
+
+        mmboi[3] = new ModelMBeanOperationInfo( "isEnabled", "Enabled getter", null, "boolean",
                 ModelMBeanOperationInfo.INFO );
 
         return new ModelMBeanInfoSupport( CacheManagedResource.class.getName(), "Caches", mmbai, null, mmboi, null );

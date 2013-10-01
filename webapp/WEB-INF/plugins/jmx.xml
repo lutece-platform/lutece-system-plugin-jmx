@@ -23,4 +23,14 @@
 	<!-- Portlet parameters -->
     <portlets>
    </portlets>
+   
+       <!-- Daemons -->
+    <daemons>
+        <daemon>
+            <daemon-id>jmxScanner</daemon-id>
+            <daemon-name>jmx.daemon.scanner.name</daemon-name>
+            <daemon-description>jmx.daemon.scanner.description</daemon-description>
+            <daemon-class>fr.paris.lutece.plugins.jmx.service.ResourceMBeansScannerDaemon</daemon-class>
+        </daemon>
+    </daemons>
 </plug-in>

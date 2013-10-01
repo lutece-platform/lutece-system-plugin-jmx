@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.jmx.service;
 import fr.paris.lutece.plugins.jmx.mbeans.MBeanManager;
 import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
 import fr.paris.lutece.plugins.jmx.mbeans.ResourceManager;
+import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.util.AppLogService;
 
 import java.lang.management.ManagementFactory;
@@ -62,46 +63,45 @@ public class JMXService
 {
     private static final String MANAGED_RESOURCE_TYPE = "objectReference";
     private MBeanServer _mbs = ManagementFactory.getPlatformMBeanServer(  );
-    private List<ResourceManager> _listResourceManagers;
-    private List<MBeanManager> _listBeanManagers;
 
     /**
-     * Sets the MBean Managers List (injected)
-     * @param list The MBean Managers List 
+     * Gets the list of MBeanManager defined in context files
+     * @return A list of MBeanManager
      */
-    public void setBeanManagersList( List<MBeanManager> list )
+    private List<MBeanManager> getBeanManagersList()
     {
-        _listBeanManagers = list;
+        return SpringContextService.getBeansOfType( MBeanManager.class );
     }
 
-    /**
-     * Sets the Resource MBeans Managers List (injected)
-     * @param list The Resource MBeans Managers List 
+     /**
+     * Gets the list of ResourceManager defined in context files
+     * @return A list of ResourceManager
      */
-    public void setResourceManagersList( List<ResourceManager> list )
+    private List<ResourceManager> getResourceManagersList()
     {
-        _listResourceManagers = list;
+        return SpringContextService.getBeansOfType( ResourceManager.class );
     }
 
     /**
      * Register MBeans
      */
-    public void registerMBeans(  )
+    public String registerMBeans(  )
     {
+        StringBuilder sb = new StringBuilder();
         try
         {
-            for ( MBeanManager bm : _listBeanManagers )
+            for ( MBeanManager bm : getBeanManagersList() )
             {
-                registerMBean( bm.getMBean(  ), bm.getMBeanName(  ) );
+                registerMBean( bm.getMBean(  ), bm.getMBeanName(  ), sb );
             }
 
-            for ( ResourceManager rm : _listResourceManagers )
+            for ( ResourceManager rm : getResourceManagersList() )
             {
                 for ( ManagedResource mr : rm.getMBeans(  ) )
                 {
                     RequiredModelMBean modelMBean = new RequiredModelMBean( rm.getMBeanInfo(  ) );
                     modelMBean.setManagedResource( mr, MANAGED_RESOURCE_TYPE );
-                    registerMBean( modelMBean, mr.getName(  ) );
+                    registerMBean( modelMBean, mr.getName(  ), sb );
                 }
             }
         }
@@ -129,15 +129,18 @@ public class JMXService
         {
             AppLogService.error( "JMX registering error : " + e.getMessage(  ), e );
         }
+        
+        return sb.toString();
     }
 
     /**
      * Register a MBean
      * @param mbean The MBean
      * @param strName The MBean name
+     * @param sb Logs
      * @return true if registred
      */
-    private boolean registerMBean( Object mbean, String strName )
+    private boolean registerMBean( Object mbean, String strName, StringBuilder sb )
     {
         try
         {
@@ -147,6 +150,7 @@ public class JMXService
             {
                 _mbs.registerMBean( mbean, name );
                 AppLogService.info( "JMX Registering MBean : " + strName );
+                sb.append( "JMX Registering MBean : " ).append( strName ).append( "\n" );
 
                 return true;
             }

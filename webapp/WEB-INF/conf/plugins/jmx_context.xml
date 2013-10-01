@@ -9,17 +9,6 @@
     <bean id="jmx.pluginMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.plugins.PluginMBeansManager" />
     <bean id="jmx.cacheMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.caches.CacheMBeansManager" />
        
-    <bean id="jmx.jmxService" class="fr.paris.lutece.plugins.jmx.service.JMXService" >
-        <property name="beanManagersList">
-            <list>
-                <ref bean="jmx.portalMBeanManager" />
-            </list>
-        </property>
-        <property name="resourceManagersList">
-            <list>
-                <ref bean="jmx.pluginMBeansManager" />
-                <ref bean="jmx.cacheMBeansManager" />
-            </list>
-        </property>
-    </bean>
+    <bean id="jmx.jmxService" class="fr.paris.lutece.plugins.jmx.service.JMXService" />
+
 </beans>

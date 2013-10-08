@@ -31,27 +31,33 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.jmx.mbeans;
+package fr.paris.lutece.plugins.jmx.mbeans.portal;
 
-import javax.management.modelmbean.ModelMBeanInfo;
+import fr.paris.lutece.util.jmx.mbeans.MBeanExporter;
 
 
 /**
- * Resource Manager
+ * Portal MBean Manager
  */
-public interface ResourceManager
+public class PortalMBeanExporter implements MBeanExporter
 {
-    static final String MBEAN_ROOT_NAME = Constants.MBEAN_ROOT_NAME;
+    private static final String MBEAN_NAME = "type=Portal";
 
     /**
-     * Get MBeans for all resources
-     * @return A list of MBeans
+     * {@inheritDoc }
      */
-    Iterable<ManagedResource> getMBeans(  );
+    @Override
+    public String getMBeanName(  )
+    {
+        return MBEAN_ROOT_NAME + MBEAN_NAME;
+    }
 
     /**
-     * Get MBEAN Info for the resource
-     * @return The ModelMBeanInfo for the resource
+     * {@inheritDoc }
      */
-    ModelMBeanInfo getMBeanInfo(  );
+    @Override
+    public Object getMBean(  )
+    {
+        return new Portal(  );
+    }
 }

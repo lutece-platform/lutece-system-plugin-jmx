@@ -33,9 +33,9 @@
  */
 package fr.paris.lutece.plugins.jmx.service;
 
-import fr.paris.lutece.plugins.jmx.mbeans.MBeanManager;
-import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
-import fr.paris.lutece.plugins.jmx.mbeans.ResourceManager;
+import fr.paris.lutece.util.jmx.mbeans.MBeanExporter;
+import fr.paris.lutece.util.jmx.mbeans.ManagedResource;
+import fr.paris.lutece.util.jmx.mbeans.ResourceExporter;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.util.AppLogService;
 
@@ -65,21 +65,21 @@ public class JMXService
     private MBeanServer _mbs = ManagementFactory.getPlatformMBeanServer(  );
 
     /**
-     * Gets the list of MBeanManager defined in context files
-     * @return A list of MBeanManager
+     * Gets the list of MBeanExporter defined in context files
+     * @return A list of MBeanExporter
      */
-    private List<MBeanManager> getBeanManagersList()
+    private List<MBeanExporter> getBeanManagersList()
     {
-        return SpringContextService.getBeansOfType( MBeanManager.class );
+        return SpringContextService.getBeansOfType( MBeanExporter.class );
     }
 
      /**
-     * Gets the list of ResourceManager defined in context files
-     * @return A list of ResourceManager
+     * Gets the list of ResourceExporter defined in context files
+     * @return A list of ResourceExporter
      */
-    private List<ResourceManager> getResourceManagersList()
+    private List<ResourceExporter> getResourceManagersList()
     {
-        return SpringContextService.getBeansOfType( ResourceManager.class );
+        return SpringContextService.getBeansOfType( ResourceExporter.class );
     }
 
     /**
@@ -90,12 +90,12 @@ public class JMXService
         StringBuilder sb = new StringBuilder();
         try
         {
-            for ( MBeanManager bm : getBeanManagersList() )
+            for ( MBeanExporter bm : getBeanManagersList() )
             {
                 registerMBean( bm.getMBean(  ), bm.getMBeanName(  ), sb );
             }
 
-            for ( ResourceManager rm : getResourceManagersList() )
+            for ( ResourceExporter rm : getResourceManagersList() )
             {
                 for ( ManagedResource mr : rm.getMBeans(  ) )
                 {

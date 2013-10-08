@@ -5,9 +5,9 @@
 
     <bean id="jmx.jmxPostStartupService" class="fr.paris.lutece.plugins.jmx.service.JMXPostStartupService" />
  
-    <bean id="jmx.portalMBeanManager" class="fr.paris.lutece.plugins.jmx.mbeans.portal.PortalMBeanManager" />
-    <bean id="jmx.pluginMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.plugins.PluginMBeansManager" />
-    <bean id="jmx.cacheMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.caches.CacheMBeansManager" />
+    <bean id="jmx.portalMBeanManager" class="fr.paris.lutece.plugins.jmx.mbeans.portal.PortalMBeanExporter" />
+    <bean id="jmx.pluginMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.plugins.PluginMBeansExporter" />
+    <bean id="jmx.cacheMBeansManager" class="fr.paris.lutece.plugins.jmx.mbeans.caches.CacheMBeansExporter" />
        
     <bean id="jmx.jmxService" class="fr.paris.lutece.plugins.jmx.service.JMXService" />
 

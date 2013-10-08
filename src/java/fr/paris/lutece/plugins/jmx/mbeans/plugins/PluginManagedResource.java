@@ -34,7 +34,7 @@
  */
 package fr.paris.lutece.plugins.jmx.mbeans.plugins;
 
-import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
+import fr.paris.lutece.util.jmx.mbeans.ManagedResource;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.plugin.Plugin;
 

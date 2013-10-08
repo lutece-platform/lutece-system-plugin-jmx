@@ -33,7 +33,7 @@
  */
 package fr.paris.lutece.plugins.jmx.mbeans.caches;
 
-import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
+import fr.paris.lutece.util.jmx.mbeans.ManagedResource;
 import fr.paris.lutece.portal.service.cache.CacheableService;
 
 

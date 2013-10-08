@@ -33,8 +33,8 @@
  */
 package fr.paris.lutece.plugins.jmx.mbeans.plugins;
 
-import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
-import fr.paris.lutece.plugins.jmx.mbeans.ResourceManager;
+import fr.paris.lutece.util.jmx.mbeans.ManagedResource;
+import fr.paris.lutece.util.jmx.mbeans.ResourceExporter;
 import fr.paris.lutece.portal.service.plugin.Plugin;
 import fr.paris.lutece.portal.service.plugin.PluginService;
 
@@ -52,7 +52,7 @@ import javax.management.modelmbean.ModelMBeanOperationInfo;
 /**
  * Plugin MBeans Manager
  */
-public class PluginMBeansManager implements ResourceManager
+public class PluginMBeansExporter implements ResourceExporter
 {
     /**
      * {@inheritDoc }

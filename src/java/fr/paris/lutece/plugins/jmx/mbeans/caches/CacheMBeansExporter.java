@@ -33,8 +33,8 @@
  */
 package fr.paris.lutece.plugins.jmx.mbeans.caches;
 
-import fr.paris.lutece.plugins.jmx.mbeans.ManagedResource;
-import fr.paris.lutece.plugins.jmx.mbeans.ResourceManager;
+import fr.paris.lutece.util.jmx.mbeans.ManagedResource;
+import fr.paris.lutece.util.jmx.mbeans.ResourceExporter;
 import fr.paris.lutece.portal.service.cache.CacheService;
 import fr.paris.lutece.portal.service.cache.CacheableService;
 
@@ -52,7 +52,7 @@ import javax.management.modelmbean.ModelMBeanOperationInfo;
 /**
  * Cache MBeans Manager
  */
-public class CacheMBeansManager implements ResourceManager
+public class CacheMBeansExporter implements ResourceExporter
 {
     /**
      * {@inheritDoc }

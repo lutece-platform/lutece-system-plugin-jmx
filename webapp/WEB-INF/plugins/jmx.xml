@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<plug-in>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
     <name>jmx</name>
     <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
     <version>0.9.0</version>
-    <documentation></documentation>
-    <installation></installation>
-    <changes></changes>
-    <user-guide></user-guide>
+    <documentation/>
+    <installation/>
+    <changes/>
+    <user-guide/>
     <description>jmx.plugin.description</description>
     <provider>jmx.plugin.provider</provider>
     <provider-url>http://dev.lutece.paris.fr</provider-url>

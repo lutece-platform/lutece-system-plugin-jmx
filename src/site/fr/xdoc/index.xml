@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
     <properties>
-        <title>Plugin jmx</title>
+        <title>Plugin JMX</title>
     </properties>
     <body>
-        <section name="Plugin jmx">
-            <!--
-            <p>
-                <img src="images/jmx.png" />
-            </p>
-            -->
+        <a href='http://dev.lutece.paris.fr/jenkins/job/system-plugin-jmx-deploy/'>
+            <img src='http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=system-plugin-jmx-deploy'>
+        </a>
+        <section name="Plugin JMX">
             <subsection name="Introduction">
-                <p></p>
-            </subsection>
-            <subsection name="Configuration">
-                <p></p>
-            </subsection>
-            <subsection name="Usage">
-                <p></p>
+                <p>This plugin provides information about Lutece (cache, plugins, ...) using the JMX protocol.</p>
+                <p>
+                    <img src="images/jmx.png" />
+                </p>
             </subsection>
         </section>
     </body>

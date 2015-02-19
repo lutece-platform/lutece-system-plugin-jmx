@@ -5,11 +5,11 @@
     </properties>
     <body>
         <a href='http://dev.lutece.paris.fr/jenkins/job/system-plugin-jmx-deploy/'>
-            <img src='http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=system-plugin-jmx-deploy'>
+            <img src='http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=system-plugin-jmx-deploy' />
         </a>
         <section name="Plugin JMX">
             <subsection name="Introduction">
-                <p>This plugin provides information about Lutece (cache, plugins, ...) using the JMX protocol.</p>
+                <p>Ce plugin fournit des informations sur Lutece (caches, plugins, ...) via le protocole JMX.</p>
                 <p>
                     <img src="images/jmx.png" />
                 </p>

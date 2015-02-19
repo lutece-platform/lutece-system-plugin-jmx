@@ -1,17 +1,11 @@
-
-#Plugin jmx
+ [](http://dev.lutece.paris.fr/jenkins/job/system-plugin-jmx-deploy/) ![](http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=system-plugin-jmx-deploy) [](http://dev.lutece.paris.fr/jenkins/job/system-plugin-jmx-deploy/) 
+#Plugin JMX
 
 ##Introduction
 
+This plugin provides information about Lutece (cache, plugins, ...) using the JMX protocol.
 
-
-##Configuration
-
-
-
-##Usage
-
-
+![](http://dev.lutece.paris.fr/plugins/plugin-jmx/images/jmx.png)
 
 
 [Maven documentation and reports](http://dev.lutece.paris.fr/plugins/plugin-jmx/)
